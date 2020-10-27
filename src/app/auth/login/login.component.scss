@@ -1,0 +1,20 @@
+.login {
+    padding: 15px 0;
+    .login-form-margin {
+        margin-bottom: 16px;
+    }
+    .login-form-forgot {
+        color: var(--mainColor);
+        width: 100%;
+    }
+    .login-form-button {
+        width: 100%;
+        background: var(--mainColor);
+        border-color: var(--mainColor);
+    }
+    .register {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--mainColor);
+    }
+}

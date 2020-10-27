@@ -1,0 +1,408 @@
+<div class="register">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nz-steps [nzCurrent]="current">
+          <nz-step nzTitle="Personal Data"></nz-step>
+          <nz-step nzTitle="Specialty Data"></nz-step>
+          <nz-step nzTitle="Waiting"></nz-step>
+        </nz-steps>
+
+        <div class="steps-content">
+          <div class="row">
+            <div class="col-md-8 m-auto">
+              <form nz-form [formGroup]="registerForm">
+                <!-- first slid Personal Data -->
+                <ng-container *ngIf="current == 0">
+                  <nz-form-item>
+                    <nz-form-label
+                      [nzSm]="6"
+                      [nzXs]="24"
+                      nzRequired
+                      nzFor="firstName_en"
+                      >First Name English
+                    </nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                      nzErrorTip="first name required!"
+                    >
+                      <nz-input-group
+                        [nzSuffix]="firstName_en"
+                        nzPrefixIcon="user"
+                      >
+                        <input
+                          type="text"
+                          nz-input
+                          formControlName="firstName_en"
+                          id="firstName_en"
+                          placeholder="Enter your first name"
+                        />
+                      </nz-input-group>
+                      <ng-template #firstName_en
+                        ><i
+                          nz-icon
+                          nz-tooltip
+                          nzTooltipTitle="Enter your first name in english"
+                          nzType="info-circle"
+                        ></i>
+                      </ng-template>
+                    </nz-form-control>
+                  </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-label
+                      [nzSm]="6"
+                      [nzXs]="24"
+                      nzRequired
+                      nzFor="lastName_en"
+                      >Last Name English
+                    </nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                      nzErrorTip="last name required!"
+                    >
+                      <nz-input-group
+                        [nzSuffix]="lastName_en"
+                        nzPrefixIcon="user"
+                      >
+                        <input
+                          type="text"
+                          nz-input
+                          formControlName="lastName_en"
+                          placeholder="Enter your last name"
+                        />
+                      </nz-input-group>
+                      <ng-template #lastName_en
+                        ><i
+                          nz-icon
+                          nz-tooltip
+                          nzTooltipTitle="Enter your last name in english"
+                          nzType="info-circle"
+                        ></i>
+                      </ng-template>
+                    </nz-form-control>
+                  </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-label
+                      [nzSm]="6"
+                      [nzXs]="24"
+                      nzRequired
+                      nzFor="firstName_ar"
+                      >First Name Arabic
+                    </nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                      nzErrorTip="first name required!"
+                    >
+                      <nz-input-group
+                        [nzSuffix]="firstName_ar"
+                        nzPrefixIcon="user"
+                      >
+                        <input
+                          type="text"
+                          nz-input
+                          formControlName="firstName_ar"
+                          placeholder="Enter your first name"
+                        />
+                      </nz-input-group>
+                      <ng-template #firstName_ar
+                        ><i
+                          nz-icon
+                          nz-tooltip
+                          nzTooltipTitle="Enter your first name in arabic"
+                          nzType="info-circle"
+                        ></i>
+                      </ng-template>
+                    </nz-form-control>
+                  </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-label
+                      [nzSm]="6"
+                      [nzXs]="24"
+                      nzRequired
+                      nzFor="lastName_ar"
+                      >Last Name Arabic
+                    </nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                      nzErrorTip="last name required!"
+                    >
+                      <nz-input-group
+                        [nzSuffix]="lastName_ar"
+                        nzPrefixIcon="user"
+                      >
+                        <input
+                          type="text"
+                          nz-input
+                          formControlName="lastName_ar"
+                          placeholder="Enter your last name"
+                        />
+                      </nz-input-group>
+                      <ng-template #lastName_ar
+                        ><i
+                          nz-icon
+                          nz-tooltip
+                          nzTooltipTitle="Enter your last name in arabic"
+                          nzType="info-circle"
+                        ></i>
+                      </ng-template>
+                    </nz-form-control>
+                  </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-label
+                      [nzSm]="6"
+                      [nzXs]="24"
+                      nzRequired
+                      nzFor="email"
+                      >E-mail
+                    </nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                      nzErrorTip="The input is not valid E-mail!"
+                    >
+                      <nz-input-group [nzSuffix]="email" nzPrefixIcon="mail">
+                        <input
+                          type="email"
+                          nz-input
+                          formControlName="email"
+                          placeholder="Enter your email"
+                        />
+                      </nz-input-group>
+                      <ng-template #email
+                        ><i
+                          nz-icon
+                          nz-tooltip
+                          nzTooltipTitle="Enter your email address"
+                          nzType="info-circle"
+                        ></i>
+                      </ng-template>
+                    </nz-form-control>
+                  </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-label
+                      [nzSm]="6"
+                      [nzXs]="24"
+                      nzRequired
+                      nzFor="phonenumber"
+                      >Phone Number
+                    </nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                      nzErrorTip="The input is not valid E-mail!"
+                    >
+                      <nz-input-group
+                        [nzSuffix]="phonenumber"
+                        nzPrefixIcon="phone"
+                        nzPrefix="+964"
+                      >
+                        <input
+                          type="phonenumber"
+                          nz-input
+                          formControlName="phonenumber"
+                          placeholder="Enter your phone number"
+                        />
+                      </nz-input-group>
+                      <ng-template #phonenumber
+                        ><i
+                          nz-icon
+                          nz-tooltip
+                          nzTooltipTitle="Enter your phone number"
+                          nzType="info-circle"
+                        ></i>
+                      </ng-template>
+                    </nz-form-control>
+                  </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-label
+                      [nzSm]="6"
+                      [nzXs]="24"
+                      nzFor="gender"
+                      nzRequired
+                      >Gender
+                    </nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                      nzErrorTip="Please select your gender!"
+                    >
+                      <nz-select
+                        formControlName="gender_id"
+                        nzPlaceHolder="Select your gender"
+                      >
+                        <nz-option [nzValue]="1" nzLabel="male"></nz-option>
+                        <nz-option [nzValue]="2" nzLabel="female"></nz-option>
+                      </nz-select>
+                    </nz-form-control>
+                  </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-label
+                      [nzSm]="6"
+                      [nzXs]="24"
+                      nzFor="password"
+                      nzRequired
+                      >Password
+                    </nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                      nzErrorTip="Please enter your new password!"
+                    >
+                      <nz-input-group [nzSuffix]="suffixTemplate">
+                        <input
+                          [type]="passwordVisible ? 'text' : 'password'"
+                          nz-input
+                          placeholder="input password"
+                          formControlName="password"
+                        />
+                      </nz-input-group>
+                      <ng-template #suffixTemplate>
+                        <i
+                          nz-icon
+                          [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+                          (click)="passwordVisible = !passwordVisible"
+                        ></i>
+                      </ng-template>
+                    </nz-form-control>
+                  </nz-form-item>
+                  <div>
+                    <p>choose doctor image</p>
+                    <div class="d-flex justify-content-center">
+                      <div class="image-frame position-relative">
+                        <div class="frame-icon h1">+</div>
+                        <input
+                          #selectImage
+                          class="frame-input"
+                          type="file"
+                          (change)="onSelectImage($event, 'doctorImage')"
+                        />
+                        <img
+                          class="frame-image"
+                          *ngIf="doctorImage"
+                          [src]="doctorImage"
+                          (click)="selectImage.click()"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <!-- slid two specialty info -->
+                <ng-container *ngIf="current == 1">
+                  <nz-form-item>
+                    <nz-form-label
+                      [nzSm]="6"
+                      [nzXs]="24"
+                      nzFor="specialty_id"
+                      nzRequired
+                      >Specialty
+                    </nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                      nzErrorTip="Please select your specialty!"
+                    >
+                      <nz-select
+                        nzShowSearch
+                        nzAllowClear
+                        nzPlaceHolder="Select your specialty"
+                        nzSize="large"
+                        formControlName="specialty_id"
+                      >
+                        <nz-option
+                          nzCustomContent
+                          *ngFor="let specialty of specialties?.data"
+                          nzLabel="{{ specialty.name_en }}"
+                          nzValue="{{ specialty.id }}"
+                          ><img
+                            src="{{ specialty.icon }}"
+                            alt=""
+                            width="30px"
+                            class="m-2"
+                          />
+                          {{ specialty.name_en }}
+                        </nz-option>
+                      </nz-select>
+                    </nz-form-control>
+                  </nz-form-item>
+                  <nz-form-item>
+                    <nz-form-label
+                      [nzSm]="6"
+                      [nzXs]="24"
+                      nzFor="subSpecialties_id"
+                      nzRequired
+                    >
+                      Specialty
+                    </nz-form-label>
+                    <nz-form-control
+                      [nzSm]="14"
+                      [nzXs]="24"
+                      nzErrorTip="Please select your sub specialty!"
+                    >
+                      <nz-select
+                        [nzMaxTagCount]="3"
+                        [nzMaxTagPlaceholder]="tagPlaceHolder"
+                        nzMode="multiple"
+                        nzPlaceHolder="Please select your sub specialty"
+                        formArrayName="subSpecialties_id"
+                      >
+                        <nz-option
+                          *ngFor="let subSpecialty of subSpecialties?.data"
+                          [nzLabel]="subSpecialty.name_en"
+                          [nzValue]="subSpecialty.id"
+                        >
+                        </nz-option>
+                      </nz-select>
+                      <ng-template #tagPlaceHolder let-selectedList>
+                        and {{ selectedList.length }} more selected
+                      </ng-template>
+                    </nz-form-control>
+                  </nz-form-item>
+                </ng-container>
+                <button
+                  class="mt-5"
+                  nz-button
+                  nzType="default"
+                  (click)="submitForm()"
+                >
+                  <span>Previous</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="steps-action">
+          <button
+            nz-button
+            nzType="default"
+            (click)="pre()"
+            *ngIf="current > 0"
+          >
+            <span>Previous</span>
+          </button>
+          <button
+            nz-button
+            nzType="default"
+            (click)="next()"
+            *ngIf="current < 2"
+          >
+            <span>Next</span>
+          </button>
+          <button
+            nz-button
+            nzType="primary"
+            (click)="done()"
+            *ngIf="current === 2"
+          >
+            <span>Done</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

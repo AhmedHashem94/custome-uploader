@@ -1,0 +1,36 @@
+<div class="login">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-3 m-auto">
+                <img src="../../../assets/img/sehakhanahLogo.png" alt="seha khanah" class="w-100">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-lg-6 col-xl-4 m-auto">
+                <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input your username!">
+                            <nz-input-group nzPrefixIcon="user" nzSize="large">
+                                <input type="text" nz-input formControlName="userName" placeholder="Username" />
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control nzErrorTip="Please input your Password!">
+                            <nz-input-group nzPrefixIcon="lock" nzSize="large">
+                                <input type="password" nz-input formControlName="password" placeholder="Password" />
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <div nz-row class="login-form-margin">
+                        <div nz-col [nzSpan]="12">
+                            <a class="login-form-forgot">Forgot password?</a>
+                        </div>
+                    </div>
+                    <button nz-button nzSize="large" class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button> Or <a class="register" routerLink="/register"> Register
+                        now! </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
