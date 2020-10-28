@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   FormArray,
   FormBuilder,
   FormControl,
@@ -8,6 +9,7 @@ import {
 } from '@angular/forms';
 import { NzUploadFile } from 'ng-zorro-antd/upload';
 import { Observable, Observer } from 'rxjs';
+import { ResponseData } from 'src/app/shared/interface/api-response';
 import { MyApiService } from '../../services/my-api.service';
 
 @Component({
@@ -25,7 +27,7 @@ export class RegisterComponent implements OnInit {
   subSpecialties;
   prefixTitles;
   profissionalDetails;
-  listOfOption: number[] = [];
+  waitForSubSpecialities: boolean;
 
   registerForm: FormGroup = this.fb.group({
     firstName_en: ['', Validators.required],
@@ -38,7 +40,7 @@ export class RegisterComponent implements OnInit {
     password: ['', Validators.required],
     featured: ['', Validators.required],
     specialty_id: ['', Validators.required],
-    subSpecialties_id: this.fb.array([this.listOfOption]),
+    subSpecialties_id: [[], Validators.required],
     prefix_title_id: ['', Validators.required],
     profissionalDetails_id: ['', Validators.required],
     profissionalTitle_en: ['', Validators.required],
@@ -83,10 +85,10 @@ export class RegisterComponent implements OnInit {
       this.specialties = res;
       console.log(this.specialties);
     });
-    this.myApi.getAllSubSpecialties().subscribe((res) => {
-      this.subSpecialties = res;
-      console.log(this.subSpecialties);
-    });
+    // this.myApi.getAllSubSpecialties().subscribe((res) => {
+    //   this.subSpecialties = res;
+    //   console.log(this.subSpecialties);
+    // });
     this.myApi.getAllprefixTitles().subscribe((res) => {
       this.prefixTitles = res;
       console.log(this.prefixTitles);
@@ -94,6 +96,18 @@ export class RegisterComponent implements OnInit {
     this.myApi.getAllprofissionalDetails().subscribe((res) => {
       this.profissionalDetails = res;
       console.log(this.profissionalDetails);
+    });
+  }
+  onSelectSpeciality(): void {
+    this.waitForSubSpecialities = true;
+    this.myApi.getAllSubSpecialties().subscribe((res: ResponseData) => {
+      if (res.success) {
+        this.subSpecialties = res.data.filter(
+          (element) => +element.specialty_id === +this.selectedSpeciality.value
+        );
+        console.log(this.subSpecialties);
+        this.waitForSubSpecialities = false;
+      }
     });
   }
 
@@ -153,5 +167,9 @@ export class RegisterComponent implements OnInit {
 
   submitForm(): void {
     console.log(this.registerForm.value);
+  }
+
+  get selectedSpeciality(): AbstractControl {
+    return this.registerForm.get('specialty_id');
   }
 }

@@ -272,16 +272,16 @@
                   <div>
                     <p>choose doctor image</p>
                     <div class="d-flex justify-content-center">
-                      <div class="image-frame position-relative">
-                        <div class="frame-icon h1">+</div>
+                      <div class="frame position-relative">
+                        <div class="frame__icon h1">+</div>
                         <input
                           #selectImage
-                          class="frame-input"
+                          class="frame__input"
                           type="file"
                           (change)="onSelectImage($event, 'doctorImage')"
                         />
                         <img
-                          class="frame-image"
+                          class="frame__image"
                           *ngIf="doctorImage"
                           [src]="doctorImage"
                           (click)="selectImage.click()"
@@ -313,6 +313,7 @@
                         nzPlaceHolder="Select your specialty"
                         nzSize="large"
                         formControlName="specialty_id"
+                        (ngModelChange)="onSelectSpeciality()"
                       >
                         <nz-option
                           nzCustomContent
@@ -339,6 +340,7 @@
                     >
                       Specialty
                     </nz-form-label>
+
                     <nz-form-control
                       [nzSm]="14"
                       [nzXs]="24"
@@ -349,10 +351,10 @@
                         [nzMaxTagPlaceholder]="tagPlaceHolder"
                         nzMode="multiple"
                         nzPlaceHolder="Please select your sub specialty"
-                        formArrayName="subSpecialties_id"
+                        formControlName="subSpecialties_id"
                       >
                         <nz-option
-                          *ngFor="let subSpecialty of subSpecialties?.data"
+                          *ngFor="let subSpecialty of subSpecialties"
                           [nzLabel]="subSpecialty.name_en"
                           [nzValue]="subSpecialty.id"
                         >
@@ -362,6 +364,12 @@
                         and {{ selectedList.length }} more selected
                       </ng-template>
                     </nz-form-control>
+                    <div
+                      class="d-flex justify-content-center align-items-center mx-2"
+                      *ngIf="waitForSubSpecialities"
+                    >
+                      <i nz-icon nzType="loading" nzTheme="outline"></i>
+                    </div>
                   </nz-form-item>
                 </ng-container>
                 <button

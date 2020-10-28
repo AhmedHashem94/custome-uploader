@@ -135,5 +135,8 @@
       }
     }
   },
-  "defaultProject": "sehaKhanah-Doctor-admin"
+  "defaultProject": "sehaKhanah-Doctor-admin",
+  "cli": {
+    "analytics": false
+  }
 }
